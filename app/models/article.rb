@@ -14,7 +14,7 @@ class Article
        @magazine={name:magazine.name,category: magazine.category}
        @title=title
        @@all << self
-
+    
     end
 
     def self.all
@@ -27,9 +27,9 @@ class Article
     
     def magazine
         @magazine[:name] 
-
-    end
+     end
 end
+
 
 
 dennis=Author.new("Dennis Muturi")

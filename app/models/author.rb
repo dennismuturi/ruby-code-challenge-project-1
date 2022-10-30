@@ -3,10 +3,11 @@ require_relative './magazine'
 
 class Author
   attr_accessor :name
-
+  @@all=[]
 
   def initialize(name)
     @name = name
+    @@all << self
   
   end
 
@@ -30,7 +31,11 @@ class Author
   end
 
   def add_article(magazine,title)
-    Article.new(self.name,magazine,title)
+     Article.new(self,magazine,title)
+  end
+
+  def self.all
+    @@all
   end
 
 end

@@ -1,8 +1,6 @@
 require_relative './articles'
-require_relative './magazine'
-
 class Author
-  attr_accessor :name
+  attr_reader :name
   @@all=[]
 
   def initialize(name)
@@ -34,6 +32,15 @@ class Author
      Article.new(self,magazine,title)
   end
 
+  def topic_areas
+    topic_areas=[]
+    Article.all.each do |article|
+      if article.author == self.name
+      topic_areas << article.magazine[:category] if  !topic_areas.include?(article.magazine[:category])
+      end
+    end
+    topic_areas
+  end
   def self.all
     @@all
   end
